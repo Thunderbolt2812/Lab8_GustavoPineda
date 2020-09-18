@@ -1691,16 +1691,22 @@ public class Main extends javax.swing.JFrame {
             DefaultTableModel ta1 = (DefaultTableModel) t1.getModel();
             ta1.addRow(newrow);
             t1.setModel(ta1);
+            
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_tienda.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
             for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals("Gerente")) {
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(x);
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                if (raiz.getChildAt(i).toString().equals("Persona")) {
+                    DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) raiz.getChildAt(i) ;
+                    for (int j = 0; j < raiz2.getChildCount(); j++) {
+                        if (raiz2.getChildAt(j).toString().equals("Gerente")) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(x);
+                            ((DefaultMutableTreeNode) raiz2.getChildAt(j)).add(p);
+                        }
+                    }
                 }
             }
+            
             modeloARBOL.reload();
-
             DefaultComboBoxModel m = (DefaultComboBoxModel) cb_registro.getModel();
             m.addElement(x);
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) cb_registro2.getModel();
@@ -1711,7 +1717,7 @@ public class Main extends javax.swing.JFrame {
             m5.addElement(x);
             DefaultComboBoxModel m6 = (DefaultComboBoxModel) cb_receptor.getModel();
             m6.addElement(x);
-            JOptionPane.showMessageDialog(null, "Se agrego un gerente");
+            JOptionPane.showMessageDialog(null, "Se agrego un gerente exitosamente");
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y no se guardaron los datos");
         }
@@ -1814,6 +1820,19 @@ public class Main extends javax.swing.JFrame {
             DefaultTableModel ta2 = (DefaultTableModel) t2.getModel();
             ta2.addRow(newrow);
             t2.setModel(ta2);
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_tienda.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals("Persona")) {
+                    DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) raiz.getChildAt(i) ;
+                    for (int j = 0; j < raiz2.getChildCount(); j++) {
+                        if (raiz2.getChildAt(j).toString().equals("Persona Normal")) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(y);
+                            ((DefaultMutableTreeNode) raiz2.getChildAt(j)).add(p);
+                        }
+                    }
+                }
+            }
             DefaultComboBoxModel m = (DefaultComboBoxModel) cb_registro.getModel();
             m.addElement(y);
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) cb_registro2.getModel();
@@ -1824,7 +1843,7 @@ public class Main extends javax.swing.JFrame {
             m5.addElement(y);
             DefaultComboBoxModel m6 = (DefaultComboBoxModel) cb_receptor.getModel();
             m6.addElement(y);
-            JOptionPane.showMessageDialog(null, "Se agrego una persona general");
+            JOptionPane.showMessageDialog(null, "Se agrego una persona general exitosamente");
         } catch (HeadlessException | NumberFormatException e7) {
             JOptionPane.showMessageDialog(null, "Hubo un error y no se guardaron los datos");
         }
@@ -1914,7 +1933,20 @@ public class Main extends javax.swing.JFrame {
             DefaultTableModel ta3 = (DefaultTableModel) t3.getModel();
             ta3.addRow(newrow);
             t3.setModel(ta3);
-            JOptionPane.showMessageDialog(null, "Se agrego un comic");
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_tienda.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            for (int f = 0; f < raiz.getChildCount(); f++) {
+                if (raiz.getChildAt(f).toString().equals("Articulo")) {
+                    DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) raiz.getChildAt(f) ;
+                    for (int j = 0; j < raiz2.getChildCount(); j++) {
+                        if (raiz2.getChildAt(j).toString().equals("Comic")) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(i);
+                            ((DefaultMutableTreeNode) raiz2.getChildAt(j)).add(p);
+                        }
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Se agrego un comic exitosamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y los datos no se ingresaron vuela a intentar");
         }
@@ -1991,14 +2023,27 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
             }
-            color = b_color.getBackground();
+            color = b_color2.getBackground();
             Juego i = new Juego(edicion, casa, pais, titulo, color, Descripcion, editorial, tamaño, puntuacion, persona);
             listaArt.add(i);
             Object[] newrow = {i.getTitulo(), i.getEdicion(), i.getCasaElaboracion(), i.getPais()};
             DefaultTableModel ta4 = (DefaultTableModel) t4.getModel();
             ta4.addRow(newrow);
             t4.setModel(ta4);
-            JOptionPane.showMessageDialog(null, "Se agrego un juego");
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_tienda.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            for (int f = 0; f < raiz.getChildCount(); f++) {
+                if (raiz.getChildAt(f).toString().equals("Articulo")) {
+                    DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) raiz.getChildAt(f) ;
+                    for (int j = 0; j < raiz2.getChildCount(); j++) {
+                        if (raiz2.getChildAt(j).toString().equals("Video Juego")) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(i);
+                            ((DefaultMutableTreeNode) raiz2.getChildAt(j)).add(p);
+                        }
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Se agrego un juego exitosamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y los datos no se ingresaron vuela a intentar");
         }
@@ -2064,14 +2109,27 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
             }
-            color = b_color.getBackground();
+            color = b_color3.getBackground();
             Figuras i = new Figuras(descFig, intrucciones, garantia, titulo, color, Descripcion, editorial, tamaño, puntuacion, persona);
             listaArt.add(i);
             Object[] newrow = {i.getTitulo(), i.getDescrip(), i.getInstrucciones(), i.getGarantia()};
             DefaultTableModel ta5 = (DefaultTableModel) t5.getModel();
             ta5.addRow(newrow);
             t5.setModel(ta5);
-            JOptionPane.showMessageDialog(null, "Se agrego una figura");
+            DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_tienda.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            for (int f = 0; f < raiz.getChildCount(); f++) {
+                if (raiz.getChildAt(f).toString().equals("Articulo")) {
+                    DefaultMutableTreeNode raiz2 = (DefaultMutableTreeNode) raiz.getChildAt(f) ;
+                    for (int j = 0; j < raiz2.getChildCount(); j++) {
+                        if (raiz2.getChildAt(j).toString().equals("Figura")) {
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(i);
+                            ((DefaultMutableTreeNode) raiz2.getChildAt(j)).add(p);
+                        }
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Se agrego una figura exitosamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y los datos no se ingresaron vuela a intentar");
         }
@@ -2184,7 +2242,7 @@ public class Main extends javax.swing.JFrame {
         tm.addRow(newrow);
         t_historial.setModel(tm);
         ta_mensaje.setText("");
-        JOptionPane.showMessageDialog(this, "Mensaje Enviado");
+        JOptionPane.showMessageDialog(this, "Mensaje Enviado exitosamente");
     }//GEN-LAST:event_jButton13MouseClicked
 
     /**
