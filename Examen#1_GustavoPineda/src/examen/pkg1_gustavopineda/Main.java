@@ -1615,11 +1615,13 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_b_colorActionPerformed
 
     private void b_color2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_color2ActionPerformed
-         b_color2.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
+        //solo es para seleccionar color
+        b_color2.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
     }//GEN-LAST:event_b_color2ActionPerformed
 
     private void b_color3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_color3ActionPerformed
-         b_color3.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
+        //solo es para seleccionar color
+        b_color3.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
     }//GEN-LAST:event_b_color3ActionPerformed
 
     private void tf_edicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_edicionActionPerformed
@@ -1627,6 +1629,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_edicionActionPerformed
 
     private void b_guardarGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_guardarGMouseClicked
+        /*
+        Esta parte del codigo es para agregar un gerente y solo se agrega si la contraseña esta correcta
+        */
         String contra;
         boolean flag = true;
         while (flag) {
@@ -1686,12 +1691,16 @@ public class Main extends javax.swing.JFrame {
             cargo = cb_cargo.getSelectedItem().toString();
             Gerentes x = new Gerentes(usuario, contraseña, cargo, id, nombre, edad, sexo, estadoCivil, altura, peso, listaMsj);
             lista.add(x);
-
+            /*
+            Aqui solo se hace el nue row para agregar el gerente a la tabla de gerentes
+            */
             Object[] newrow = {x.getNombre(), x.getUsuario(), x.getCargo(), x.getID()};
             DefaultTableModel ta1 = (DefaultTableModel) t1.getModel();
             ta1.addRow(newrow);
             t1.setModel(ta1);
-            
+            /*
+            Aqui se agrega el gerente al jtree
+            */
             DefaultTreeModel modeloARBOL = (DefaultTreeModel) jt_tienda.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloARBOL.getRoot();
             for (int i = 0; i < raiz.getChildCount(); i++) {
@@ -1705,8 +1714,10 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
             }
-            
             modeloARBOL.reload();
+            /*
+            Aqui agrega el gerente a los doferentes cobo boxes para agregar articulos
+            */
             DefaultComboBoxModel m = (DefaultComboBoxModel) cb_registro.getModel();
             m.addElement(x);
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) cb_registro2.getModel();
@@ -1721,6 +1732,10 @@ public class Main extends javax.swing.JFrame {
         } catch (HeadlessException | NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y no se guardaron los datos");
         }
+        /*
+            Todos los text fields se hacen vacios para que sea mas amigable
+        
+            */
         tf_nombreG.setText("");
         tf_id.setText("");
         tf_edad.setText("");
@@ -1743,6 +1758,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void b_guardarPGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_guardarPGMouseClicked
+        /*
+            Aqui se agrega la persona general a la tabla, a los combo boxes y al jtree
+            */
         String contra;
         boolean flag = true;
         while (flag) {
@@ -1847,6 +1865,9 @@ public class Main extends javax.swing.JFrame {
         } catch (HeadlessException | NumberFormatException e7) {
             JOptionPane.showMessageDialog(null, "Hubo un error y no se guardaron los datos");
         }
+        /*
+            Aqui se setean los datos a vacios
+            */
         tf_nombreG2.setText("");
         tf_id.setText("");
         tf_edad.setText("");
@@ -1866,6 +1887,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_b_guardarActionPerformed
 
     private void b_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b_guardarMouseClicked
+        /*
+            Aqui se agrega un articulo que seria el comic y tambien se agrega a la tabla de comic y al jtree
+            */
         String contra;
         boolean flag = true;
         while (flag) {
@@ -1950,6 +1974,9 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y los datos no se ingresaron vuela a intentar");
         }
+        /*
+            Aqui se setean los datos a vacios
+            */
         tf_titulo.setText("");
         ta_descripcion.setText("");
         tf_editorial.setText("");
@@ -1966,6 +1993,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_b_colorMouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        /*
+            Aqui se agrega otro articulo que es el video juego y se agrega a su respectiva
+        tabla y jtree
+            */
         String contra;
         boolean flag = true;
         while (flag) {
@@ -2047,6 +2078,9 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y los datos no se ingresaron vuela a intentar");
         }
+        /*
+            Aqui se setean a vacios
+            */
         tf_titulo2.setText("");
         ta_descripcion2.setText("");
         tf_editorial2.setText("");
@@ -2059,6 +2093,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        /*
+            Aqui se agrega otro articulo que es la figura de accion y se agrega a su respectiva
+        tabla y jtree
+            */
         String contra;
         boolean flag = true;
         while (flag) {
@@ -2133,6 +2171,9 @@ public class Main extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Hubo un error y los datos no se ingresaron vuela a intentar");
         }
+        /*
+            Aqui se setean los txt fields a vacios
+            */
         tf_titulo3.setText("");
         ta_descripcion3.setText("");
         tf_editorial3.setText("");
@@ -2144,88 +2185,127 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /*
+            Aqui se elimina la row seleccionada
+            */
         if (t1.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t1.getModel();
             m.removeRow(t1.getSelectedRow());
             t1.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se elimino exitosamente");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        /*
+            Aqui se elimina la row seleccionada
+            */
         if (t2.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t2.getModel();
             m.removeRow(t2.getSelectedRow());
             t2.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se elimino exitosamente");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        /*
+            Aqui se elimina la row seleccionada
+            */
         if (t5.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t5.getModel();
             m.removeRow(t5.getSelectedRow());
             t5.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se elimino exitosamente");
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        /*
+            Aqui se elimina la row seleccionada
+            */
         if (t4.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t4.getModel();
             m.removeRow(t4.getSelectedRow());
             t4.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se elimino exitosamente");
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        /*
+            Aqui se elimina la row seleccionada
+            */
         if (t3.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t3.getModel();
             m.removeRow(t3.getSelectedRow());
             t3.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se elimino exitosamente");
         }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        /*
+            Aqui se modifica el usuario del gerente
+            */
         if (t1.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t1.getModel();
             String dueño = JOptionPane.showInputDialog("Ingrese el nuevo usuario");
             m.setValueAt(dueño, t1.getSelectedRow(), 1);
             t1.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se modifico exitosamente");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        /*
+            Aqui se modifica la ocupacion de la persona general
+            */
         if (t2.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t2.getModel();
             String ocupacion = JOptionPane.showInputDialog("Ingrese la nueva ocupacion");
             m.setValueAt(ocupacion, t2.getSelectedRow(), 1);
             t2.setModel(m);
-            JOptionPane.showMessageDialog(this, "Modificacion Exitosa");
+            JOptionPane.showMessageDialog(null, "Se modifico exitosamente");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        /*
+            Aqui se modifica el estado del comic
+            */
         if (t3.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t3.getModel();
-            int estado = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo volumen"));
+            int estado = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo estado"));
             m.setValueAt(estado, t3.getSelectedRow(), 3);
             t3.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se modifico exitosamente");
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        /*
+            Aqui se modifica el pais del video juego
+            */
         if (t4.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t4.getModel();
             String pais = JOptionPane.showInputDialog("Ingrese el nuevo pais");
             m.setValueAt(pais, t4.getSelectedRow(), 3);
             t4.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se modifico exitosamente");
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        /*
+            Aqui se modifica la garantia de la figura
+            */
         if (t5.getSelectedRow() >= 0) {
             DefaultTableModel m = (DefaultTableModel) t5.getModel();
             String garantia = JOptionPane.showInputDialog("Ingrese la nueva garantia");
             m.setValueAt(garantia, t5.getSelectedRow(), 3);
             t5.setModel(m);
+            JOptionPane.showMessageDialog(null, "Se modifico exitosamente");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -2234,6 +2314,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_tf_tiempoTrabActionPerformed
 
     private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        /*
+           esta parte del code es para poder hacer una mensaje, se elije el emisor por un combo box
+        y se elije el receptor de la misma manera, de ahi se escribe el mensaje y se obtiene por el text area
+        y despues al enviar mensaje, el mensaje aparece e una tabla
+            */
         String emisor = cb_emisor.getSelectedItem().toString();
         String receptor = cb_receptor.getSelectedItem().toString();
         String mensaje = ta_mensaje.getText();
@@ -2245,7 +2330,9 @@ public class Main extends javax.swing.JFrame {
         ta_mensaje.setText("");
         JOptionPane.showMessageDialog(this, "Mensaje Enviado exitosamente");
     }//GEN-LAST:event_jButton13MouseClicked
-
+    /*
+            GRACIAS POR TUS AMAZING LABS CLAU, TE VAMOS A EXTRAÑAR SI NO ESTAS EN PROGRA 3
+            */
     /**
      * @param args the command line arguments
      */
