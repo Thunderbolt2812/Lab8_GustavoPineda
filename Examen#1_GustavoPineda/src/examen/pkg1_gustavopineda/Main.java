@@ -1615,11 +1615,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_b_colorActionPerformed
 
     private void b_color2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_color2ActionPerformed
-        // TODO add your handling code here:
+         b_color2.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
     }//GEN-LAST:event_b_color2ActionPerformed
 
     private void b_color3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_color3ActionPerformed
-        // TODO add your handling code here:
+         b_color3.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.yellow));
     }//GEN-LAST:event_b_color3ActionPerformed
 
     private void tf_edicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_edicionActionPerformed
@@ -2198,6 +2198,7 @@ public class Main extends javax.swing.JFrame {
             String ocupacion = JOptionPane.showInputDialog("Ingrese la nueva ocupacion");
             m.setValueAt(ocupacion, t2.getSelectedRow(), 1);
             t2.setModel(m);
+            JOptionPane.showMessageDialog(this, "Modificacion Exitosa");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
